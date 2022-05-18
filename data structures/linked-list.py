@@ -25,7 +25,7 @@ class LinkedList:
 
     def size(self):
         """
-        Returns the size of the linke list object
+        Returns the number of nodes in the linked list object
         """
         current_node = self.head
         count = 0
@@ -35,3 +35,12 @@ class LinkedList:
             current_node = current_node.next_node
 
         return count
+
+    def prepend(self, data):
+        """
+        Adds new data node at the beginning of the list
+        Has O(n) runtime
+        """
+        new_node = Node(data)
+        new_node.next_node = self.head
+        self.head = new_node
