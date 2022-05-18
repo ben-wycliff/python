@@ -57,6 +57,29 @@ class LinkedList:
             current_node = current_node.next_node
         return None
 
+    def insert(self, index, data):
+        """
+        Inserts new data node at specified index
+        Takes O(n) at worst case and O(1) for 0 index
+        """
+        new_node = Node(data)
+        current_node = self.head
+        position = index
+
+        if index == 0:
+            self.prepend(data)
+
+        if index > 0:
+            while position > 1:
+                current_node = current_node.next_node
+                position -= 1
+
+            prev_node = current_node
+            next_node = current_node.next_node
+
+            prev_node.next_node = new_node
+            new_node.next_node = next_node
+
     def __repr__(self):
         current_node = self.head
         nodes = []
