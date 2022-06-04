@@ -1,0 +1,58 @@
+def merge_sort(list):
+    """
+    Sorts an list of numbers
+    returns a sorted list
+    """
+
+    if len(list) <= 1:
+        return list
+
+    left_half, right_half = split(list)
+    left = merge_sort(left_half)
+    right = merge_sort(right_half)
+
+    return merge(left, right)
+
+
+def split(list):
+    mid = len(list) // 2
+    left = list[:mid]
+    right = list[mid:]
+    return left, right
+
+
+def merge(left, right):
+    l = []
+    i = 0
+    j = 0
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            l.append(left[i])
+            i += 1
+        else:
+            l.append(right[j])
+            j += 1
+
+    while i < len(left):
+        l.append(left[i])
+        i += 1
+
+    while j < len(right):
+        l.append(right[j])
+        j += 1
+    return l
+
+
+def test():
+    l1 = [1, 78, 23, 43, 11, 2, 0, 56]
+    l2 = [54, 62, 17, 77, 31, 44, 55, 20]
+    l3 = [7, 6, 5, 2, 3, 1, 4]
+    print(f"Sorted {l2} to {merge_sort(l2)}")
+    print(f"Sorted {l1} to {merge_sort(l1)}")
+    print(f"Sorted {l3} to {merge_sort(l3)}")
+    # l1_sorted = merge_sort(l1)
+    # print(l1_sorted)
+
+
+if __name__ == "__main__":
+    test()
