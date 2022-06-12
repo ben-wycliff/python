@@ -1,13 +1,13 @@
 def bubble_sort(list):
     """
-        Sorts a list of items
+        Sorts a list of items in ascending order
         runs in a timespace of O(n)
     """
     includes_swap = False
     i, j = 0, 1
 
     while j < len(list):
-        if list[j] > list[i]:
+        if list[j] < list[i]:
             container = list[i]
             list[i] = list[j]
             list[j] = container
