@@ -1,4 +1,4 @@
-from algorithms.bubble_sort import bubble_sort
+from ..algorithms.bubble_sort import bubble_sort
 
 class TestBubbleSort:
     def test_one(self):
